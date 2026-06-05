@@ -151,7 +151,7 @@ function AdminContentBlocksManager() {
     const postData = {
       title: { en: postTitleEn, ka: postTitleKa, ru: postTitleRu },
       slug: postSlug,
-      coverImage: postCoverImage || "/src/assets/craft.jpg",
+      coverImage: postCoverImage || "/assets/craft.jpg",
       excerpt: { en: postExcerptEn, ka: postExcerptKa, ru: postExcerptRu },
       content: { en: postContentEn, ka: postContentKa, ru: postContentRu },
       status: postStatus,
@@ -569,7 +569,7 @@ function AdminContentBlocksManager() {
                     type="text"
                     value={postCoverImage}
                     onChange={(e) => setPostCoverImage(e.target.value)}
-                    placeholder="e.g. /src/assets/craft.jpg"
+                    placeholder="e.g. /assets/craft.jpg"
                     className="w-full px-3 py-2 bg-transparent border border-[#E1E3E5] rounded-sm font-mono"
                   />
                 </div>

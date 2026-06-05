@@ -161,7 +161,7 @@ function AdminProductsManager() {
       name: { en: nameEn, ka: nameKa, ru: nameRu },
       category: category as Product["category"],
       price: Number(price),
-      image: image || "/src/assets/product-1.jpg",
+      image: image || "/assets/product-1.jpg",
       material: { en: materialEn, ka: materialKa, ru: materialRu },
       story: { en: storyEn, ka: storyKa, ru: storyRu },
       sku,
@@ -523,7 +523,7 @@ function AdminProductsManager() {
                     type="text"
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
-                    placeholder="e.g. /src/assets/product-1.jpg"
+                    placeholder="e.g. /assets/product-1.jpg"
                     className="w-full px-3 py-2 bg-transparent border border-[#E1E3E5] rounded-sm font-mono"
                   />
                 </div>
