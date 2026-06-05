@@ -2,6 +2,14 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "BPG Nino Mtavruli Bold";
+  src: url("./assets/bpg_nino_mtavruli_bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
@@ -99,6 +107,11 @@
   --border: oklch(0.28 0.01 60);
   --input: oklch(0.28 0.01 60);
   --ring: oklch(0.72 0.09 75);
+}
+
+html[lang="ka"] {
+  --font-serif: "BPG Nino Mtavruli Bold", "Noto Serif Georgian", "Times New Roman", serif;
+  --font-display: "BPG Nino Mtavruli Bold", "Noto Serif Georgian", serif;
 }
 
 @layer base {
