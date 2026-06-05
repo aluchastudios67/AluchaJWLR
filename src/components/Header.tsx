@@ -35,16 +35,16 @@ export function Header() {
         scrolled ? "bg-background/85 backdrop-blur-md border-b border-border/60" : "bg-transparent"
       }`}
     >
-      <div className="container-luxury flex items-center justify-between h-16 md:h-20">
+      <div className="container-luxury flex items-center justify-between h-16 lg:h-20">
         <button
           aria-label="Open menu"
-          className="md:hidden p-2 -ml-2"
+          className="lg:hidden p-2 -ml-2"
           onClick={() => setOpen(true)}
         >
           <Menu className="h-5 w-5" />
         </button>
 
-        <nav className="hidden md:flex gap-9 text-[12px] tracking-[0.18em] uppercase font-medium">
+        <nav className="hidden lg:flex gap-6 xl:gap-9 text-[11px] xl:text-[12px] tracking-[0.18em] uppercase font-medium">
           {nav.slice(0, 3).map((n) => (
             <Link key={n.to} to={n.to} className="link-underline hover:text-gold transition-colors">
               {t(n.key)}
@@ -52,19 +52,19 @@ export function Header() {
           ))}
         </nav>
 
-        <Link to="/" className="absolute left-1/2 -translate-x-1/2 font-serif text-xl md:text-2xl tracking-[0.35em] uppercase">
+        <Link to="/" className="absolute left-1/2 -translate-x-1/2 font-serif text-xl lg:text-2xl tracking-[0.35em] uppercase">
           Alucha
         </Link>
 
-        <div className="flex items-center gap-1 md:gap-3">
-          <nav className="hidden md:flex gap-9 text-[12px] tracking-[0.18em] uppercase font-medium mr-3">
+        <div className="flex items-center gap-1 lg:gap-3">
+          <nav className="hidden lg:flex gap-6 xl:gap-9 text-[11px] xl:text-[12px] tracking-[0.18em] uppercase font-medium mr-3">
             {nav.slice(3).map((n) => (
               <Link key={n.to} to={n.to} className="link-underline hover:text-gold transition-colors">
                 {t(n.key)}
               </Link>
             ))}
           </nav>
-          <button aria-label={t("search")} className="p-2 hover:text-gold transition-colors hidden md:block">
+          <button aria-label={t("search")} className="p-2 hover:text-gold transition-colors hidden lg:block">
             <Search className="h-4 w-4" />
           </button>
           
@@ -78,7 +78,7 @@ export function Header() {
             <button 
               onClick={() => setLangOpen(!langOpen)}
               aria-label="Select language" 
-              className="p-2 text-[10px] md:text-xs tracking-wider md:tracking-widest uppercase hover:text-gold transition-colors flex items-center gap-1 cursor-pointer"
+              className="p-2 text-[10px] lg:text-xs tracking-wider lg:tracking-widest uppercase hover:text-gold transition-colors flex items-center gap-1 cursor-pointer"
             >
               <Globe className="h-3.5 w-3.5" />
               <span>{language === "ka" ? "ქარ" : language === "en" ? "EN" : "RU"}</span>
@@ -113,7 +113,7 @@ export function Header() {
             )}
           </div>
 
-          <Link to="/wishlist" aria-label={t("wishlist")} className="p-2 hover:text-gold transition-colors hidden md:block">
+          <Link to="/wishlist" aria-label={t("wishlist")} className="p-2 hover:text-gold transition-colors hidden lg:block">
             <Heart className="h-4 w-4" />
           </Link>
           <Link to="/cart" aria-label={t("cart")} className="p-2 hover:text-gold transition-colors relative">
@@ -124,7 +124,7 @@ export function Header() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-50 bg-background transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-50 bg-background transition-opacity duration-300 lg:hidden ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >

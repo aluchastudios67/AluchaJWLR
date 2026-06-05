@@ -13,15 +13,14 @@ const LanguageContext = createContext<LanguageContextProps | undefined>(undefine
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   // Use "ka" (Georgian) as the default language.
-  const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("alucha-language") as Language;
-      if (saved && (saved === "ka" || saved === "en" || saved === "ru")) {
-        return saved;
-      }
+  const [language, setLanguageState] = useState<Language>("ka");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("alucha-language") as Language;
+    if (saved && (saved === "ka" || saved === "en" || saved === "ru")) {
+      setLanguageState(saved);
     }
-    return "ka";
-  });
+  }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
