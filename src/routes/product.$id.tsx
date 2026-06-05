@@ -120,14 +120,14 @@ function ProductPage() {
           </div>
 
           <div className="mt-12 space-y-4 text-sm border-t border-border pt-8">
-            {[
+            {([
               [Truck, "Complimentary shipping & gift wrap"],
               [ShieldCheck, "Lifetime craftsmanship guarantee"],
               [RotateCcw, "30-day considered returns"],
-            ].map(([Icon, text]) => (
-              <div key={text as string} className="flex items-center gap-4 text-muted-foreground">
+            ] as const).map(([Icon, text]) => (
+              <div key={text} className="flex items-center gap-4 text-muted-foreground">
                 <Icon className="h-4 w-4 text-gold" />
-                <span>{text as string}</span>
+                <span>{text}</span>
               </div>
             ))}
           </div>
