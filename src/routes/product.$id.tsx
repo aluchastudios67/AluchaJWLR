@@ -126,7 +126,6 @@ function ProductPage() {
               [RotateCcw, "30-day considered returns"],
             ].map(([Icon, text]) => (
               <div key={text as string} className="flex items-center gap-4 text-muted-foreground">
-                {/* @ts-expect-error -- lucide */}
                 <Icon className="h-4 w-4 text-gold" />
                 <span>{text as string}</span>
               </div>
