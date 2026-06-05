@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600&family=Noto+Serif+Georgian:wght@300;400;500&display=swap",
       },
     ],
   }),
@@ -108,18 +108,25 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { LanguageProvider } from "@/components/LanguageProvider";
+import { useLocation } from "@tanstack/react-router";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider>
+          {!isAdminRoute && <Header />}
+          <main>
+            <Outlet />
+          </main>
+          {!isAdminRoute && <Footer />}
+        </ThemeProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

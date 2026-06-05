@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import story from "@/assets/story.jpg";
 import craft from "@/assets/craft.jpg";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export const Route = createFileRoute("/story")({
   head: () => ({
@@ -21,15 +22,14 @@ export const Route = createFileRoute("/story")({
 });
 
 function Story() {
+  const { t } = useLanguage();
   return (
     <div className="pt-32 md:pt-40">
       <div className="container-luxury max-w-3xl text-center">
-        <p className="eyebrow">Our Story</p>
-        <h1 className="mt-5 font-serif text-5xl md:text-7xl">A house of quiet things.</h1>
+        <p className="eyebrow">{t("nav_story")}</p>
+        <h1 className="mt-5 font-serif text-5xl md:text-7xl">{t("story_title")}</h1>
         <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-          Alucha Studios was founded in 2019 by designer Mariel Alucha, between an art studio in
-          Paris and a small jewelry bench in Lisbon. The brief was simple — make pieces worth
-          keeping forever.
+          {t("story_p1")}
         </p>
       </div>
       <div className="container-luxury mt-20">
@@ -43,17 +43,13 @@ function Story() {
       </div>
       <div className="container-luxury max-w-3xl py-24 md:py-36 space-y-10 text-lg leading-relaxed">
         <p>
-          We design jewelry the way a writer keeps a notebook — slowly, attentively, with reverence
-          for the small things. Every piece begins as a sketch on paper, becomes a wax carving by
-          hand, and is finally cast in recycled gold by artisans we have worked with for years.
+          {t("story_p2")}
         </p>
         <p className="font-serif italic text-2xl text-gold">
-          "We don't make jewelry for occasions. We make jewelry for lives."
+          {t("story_quote")}
         </p>
         <p>
-          Our collections are small by intention. We release only what feels essential, and we
-          maintain every piece we make — forever. A jewel from Alucha is not a transaction. It is
-          the beginning of a long relationship.
+          {t("story_p3")}
         </p>
       </div>
       <div className="container-luxury">
@@ -71,7 +67,7 @@ function Story() {
           to="/shop"
           className="inline-block px-8 py-4 bg-foreground text-background text-[11px] tracking-[0.25em] uppercase hover:bg-gold transition-colors"
         >
-          Shop the Collection
+          {t("hero_btn_shop")}
         </Link>
       </div>
     </div>

@@ -7,12 +7,23 @@ import earrings from "@/assets/collection-earrings.jpg";
 import bracelets from "@/assets/collection-bracelets.jpg";
 import craft from "@/assets/craft.jpg";
 import story from "@/assets/story.jpg";
-import { products } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
 import { Newsletter } from "@/components/Newsletter";
 import { Marquee } from "@/components/Marquee";
+import { useLanguage } from "@/components/LanguageProvider";
+import { type translations } from "@/lib/translations";
+
+type TranslationKey = keyof typeof translations.en;
+
+import { getProductsFn, getContentBlockByKeyFn } from "@/lib/api/db.functions";
 
 export const Route = createFileRoute("/")({
+  loader: async () => {
+    return {
+      dbProducts: await getProductsFn(),
+      heroBlock: await getContentBlockByKeyFn({ data: "home_hero" }),
+    };
+  },
   head: () => ({
     meta: [
       { title: "Alucha Studios — Jewelry With Meaning" },
@@ -31,13 +42,28 @@ export const Route = createFileRoute("/")({
 });
 
 const collections = [
-  { label: "Rings", img: rings, to: "/collections/rings" },
-  { label: "Necklaces", img: necklaces, to: "/collections/necklaces" },
-  { label: "Earrings", img: earrings, to: "/collections/earrings" },
-  { label: "Bracelets", img: bracelets, to: "/collections/bracelets" },
+  { label: "Rings", img: rings, to: "/collections/rings", key: "shop_cats_rings" as TranslationKey },
+  { label: "Necklaces", img: necklaces, to: "/collections/necklaces", key: "shop_cats_necklaces" as TranslationKey },
+  { label: "Earrings", img: earrings, to: "/collections/earrings", key: "shop_cats_earrings" as TranslationKey },
+  { label: "Bracelets", img: bracelets, to: "/collections/bracelets", key: "shop_cats_bracelets" as TranslationKey },
 ] as const;
 
 function Home() {
+  const { t, language } = useLanguage();
+  const { dbProducts, heroBlock } = Route.useLoaderData();
+
+  const heroData = heroBlock?.data || {};
+  const heroEyebrow = heroData.eyebrow?.[language] || t("hero_eyebrow");
+  const heroTitle1 = heroData.title_1?.[language] || t("hero_title_1");
+  const heroTitle2 = heroData.title_2?.[language] || t("hero_title_2");
+  const heroDesc = heroData.description?.[language] || t("hero_desc");
+
+  const testimonials = [
+    { qKey: "testimonial_1_quote" as TranslationKey, aKey: "testimonial_1_author" as TranslationKey },
+    { qKey: "testimonial_2_quote" as TranslationKey, aKey: "testimonial_2_author" as TranslationKey },
+    { qKey: "testimonial_3_quote" as TranslationKey, aKey: "testimonial_3_author" as TranslationKey },
+  ] as const;
+
   return (
     <>
       {/* HERO */}
@@ -52,27 +78,26 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-ivory/70 via-ivory/20 to-transparent dark:from-background/80 dark:via-background/30" />
         <div className="container-luxury relative z-10 flex min-h-dvh items-center pt-24">
           <div className="max-w-2xl animate-fade-up">
-            <p className="eyebrow">The Spring Edit · 2026</p>
+            <p className="eyebrow">{heroEyebrow}</p>
             <h1 className="mt-6 font-serif text-[clamp(3rem,8vw,6.5rem)] leading-[0.95] tracking-[-0.02em]">
-              Jewelry<br />
-              <em className="italic font-light text-gold">With Meaning.</em>
+              {heroTitle1}<br />
+              <em className="italic font-light text-gold">{heroTitle2}</em>
             </h1>
             <p className="mt-8 max-w-md text-base md:text-lg text-foreground/80 leading-relaxed">
-              Crafted to celebrate stories, memories, and moments that last forever — by hand, in
-              small numbers, from recycled gold.
+              {heroDesc}
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 to="/shop"
                 className="px-8 py-4 bg-foreground text-background text-[11px] tracking-[0.25em] uppercase hover:bg-gold transition-colors inline-flex items-center gap-3"
               >
-                Shop Collection <ArrowRight className="h-3.5 w-3.5" />
+                {t("hero_btn_shop")} <ArrowRight className="h-3.5 w-3.5" />
               </Link>
               <Link
                 to="/story"
                 className="px-8 py-4 border border-foreground text-foreground text-[11px] tracking-[0.25em] uppercase hover:bg-foreground hover:text-background transition-colors"
               >
-                Explore Our Story
+                {t("hero_btn_story")}
               </Link>
             </div>
           </div>
@@ -85,17 +110,17 @@ function Home() {
       <section className="container-luxury py-24 md:py-36">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
-            <p className="eyebrow">Collections</p>
-            <h2 className="mt-4 font-serif text-5xl md:text-6xl">An archive of intention.</h2>
+            <p className="eyebrow">{t("collections_eyebrow")}</p>
+            <h2 className="mt-4 font-serif text-5xl md:text-6xl">{t("collections_title")}</h2>
           </div>
           <Link to="/shop" className="link-underline text-sm tracking-[0.2em] uppercase">
-            View all →
+            {t("view_all")}
           </Link>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {collections.map((c, i) => (
             <Link
-              key={c.label}
+              key={c.key}
               to={c.to}
               className={`group relative block overflow-hidden bg-secondary ${
                 i % 2 === 0 ? "aspect-[3/4] md:mt-12" : "aspect-[3/4]"
@@ -103,7 +128,7 @@ function Home() {
             >
               <img
                 src={c.img}
-                alt={c.label}
+                alt={t(c.key)}
                 loading="lazy"
                 width={900}
                 height={1100}
@@ -111,8 +136,8 @@ function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5 md:p-7 text-white">
-                <p className="eyebrow text-white/70">Shop</p>
-                <h3 className="mt-1 font-serif text-2xl md:text-3xl">{c.label}</h3>
+                <p className="eyebrow text-white/70">{t("shop_now")}</p>
+                <h3 className="mt-1 font-serif text-2xl md:text-3xl">{t(c.key)}</h3>
               </div>
             </Link>
           ))}
@@ -133,22 +158,19 @@ function Home() {
             />
           </div>
           <div className="md:col-span-5 md:pl-10">
-            <p className="eyebrow">The House</p>
+            <p className="eyebrow">{t("story_section_eyebrow")}</p>
             <h2 className="mt-5 font-serif text-4xl md:text-5xl">
-              Worn close.<br />
-              <em className="italic text-gold font-light">Made to last.</em>
+              {t("story_section_title_1")}<br />
+              <em className="italic text-gold font-light">{t("story_section_title_2")}</em>
             </h2>
             <p className="mt-7 text-muted-foreground leading-relaxed">
-              Alucha Studios began as a quiet conversation between an artist and a goldsmith — a
-              shared belief that the things we wear closest should mean the most. Every piece is
-              drawn by hand, cast in small numbers, and finished in our Paris atelier.
+              {t("story_section_desc_1")}
             </p>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              We work only with recycled gold and traceable stones, because heirlooms should never
-              cost the earth.
+              {t("story_section_desc_2")}
             </p>
             <Link to="/story" className="mt-9 inline-block link-underline text-sm tracking-[0.2em] uppercase">
-              Read the full story →
+              {t("story_section_link")}
             </Link>
           </div>
         </div>
@@ -158,15 +180,15 @@ function Home() {
       <section className="container-luxury py-24 md:py-36">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
-            <p className="eyebrow">Most Loved</p>
-            <h2 className="mt-4 font-serif text-5xl md:text-6xl">The bestsellers.</h2>
+            <p className="eyebrow">{t("bestsellers_eyebrow")}</p>
+            <h2 className="mt-4 font-serif text-5xl md:text-6xl">{t("bestsellers_title")}</h2>
           </div>
           <Link to="/shop" className="link-underline text-sm tracking-[0.2em] uppercase">
-            Shop all pieces →
+            {t("shop_all_pieces")}
           </Link>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-12 md:gap-x-8">
-          {products.map((p) => (
+          {dbProducts.slice(0, 4).map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
@@ -177,19 +199,18 @@ function Home() {
         <div className="grid md:grid-cols-2 min-h-[80vh]">
           <div className="bg-foreground text-background flex items-center">
             <div className="p-10 md:p-20 max-w-xl">
-              <p className="eyebrow text-background/60">Craftsmanship</p>
+              <p className="eyebrow text-background/60">{t("craft_section_eyebrow")}</p>
               <h2 className="mt-5 font-serif text-4xl md:text-5xl">
-                Hours, not minutes. Hands, not machines.
+                {t("craft_section_title")}
               </h2>
               <p className="mt-7 text-background/70 leading-relaxed">
-                Every Alucha piece passes through the hands of three artisans — from the first wax
-                carving to the final polish. Slower, by design.
+                {t("craft_section_desc")}
               </p>
               <div className="mt-12 grid grid-cols-3 gap-6 text-background">
                 {[
-                  ["18k", "Recycled gold"],
-                  ["3", "Artisans per piece"],
-                  ["∞", "Lifetime repair"],
+                  [t("craft_section_stat1_num"), t("craft_section_stat1_lbl")],
+                  [t("craft_section_stat2_num"), t("craft_section_stat2_lbl")],
+                  [t("craft_section_stat3_num"), t("craft_section_stat3_lbl")],
                 ].map(([n, l]) => (
                   <div key={l}>
                     <div className="font-serif text-4xl text-gold">{n}</div>
@@ -203,7 +224,7 @@ function Home() {
                 to="/craftsmanship"
                 className="mt-12 inline-block px-7 py-3.5 border border-background/40 text-[11px] tracking-[0.25em] uppercase hover:bg-background hover:text-foreground transition-colors"
               >
-                Inside the Atelier
+                {t("craft_section_btn")}
               </Link>
             </div>
           </div>
@@ -222,39 +243,23 @@ function Home() {
 
       {/* TESTIMONIALS */}
       <section className="container-luxury py-24 md:py-36">
-        <p className="eyebrow text-center">In their words</p>
+        <p className="eyebrow text-center">{t("testimonials_eyebrow")}</p>
         <h2 className="mt-4 font-serif text-4xl md:text-5xl text-center max-w-3xl mx-auto">
-          Pieces that become part of a life.
+          {t("testimonials_title")}
         </h2>
         <div className="mt-16 grid md:grid-cols-3 gap-10 md:gap-16">
-          {[
-            {
-              q: "The signet ring arrived in the most beautiful packaging — it feels like a piece I will pass on to my daughter.",
-              n: "Elena R.",
-              c: "Milan",
-            },
-            {
-              q: "Wearing my Soleil pendant every day for two years. Still looks the day I bought it. Genuinely heirloom quality.",
-              n: "Camille D.",
-              c: "Paris",
-            },
-            {
-              q: "There is a quiet confidence to everything Alucha makes. Not loud. Not trendy. Just exquisite.",
-              n: "Sofía M.",
-              c: "New York",
-            },
-          ].map((t) => (
-            <figure key={t.n} className="text-center">
+          {testimonials.map((t_item, idx) => (
+            <figure key={idx} className="text-center">
               <div className="flex justify-center gap-1 text-gold">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-3.5 w-3.5 fill-current" />
                 ))}
               </div>
               <blockquote className="mt-6 font-serif text-2xl leading-snug italic text-foreground/90">
-                "{t.q}"
+                "{t(t_item.qKey)}"
               </blockquote>
               <figcaption className="mt-6 text-xs tracking-[0.22em] uppercase text-muted-foreground">
-                {t.n} · {t.c}
+                {t(t_item.aKey)}
               </figcaption>
             </figure>
           ))}
@@ -265,9 +270,9 @@ function Home() {
       <section className="bg-secondary/50 py-24 md:py-32">
         <div className="container-luxury">
           <div className="text-center">
-            <p className="eyebrow">#WornByYou</p>
-            <h2 className="mt-4 font-serif text-4xl md:text-5xl">From our community.</h2>
-            <p className="mt-4 text-muted-foreground">Tag @alucha.studios to be featured.</p>
+            <p className="eyebrow">{t("community_eyebrow")}</p>
+            <h2 className="mt-4 font-serif text-4xl md:text-5xl">{t("community_title")}</h2>
+            <p className="mt-4 text-muted-foreground">{t("community_desc")}</p>
           </div>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-3">
             {[rings, necklaces, earrings, bracelets, story, craft].map((img, i) => (

@@ -34,9 +34,9 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Cormorant Garamond", serif;
+  --font-serif: "Cormorant Garamond", "Noto Serif Georgian", "Times New Roman", serif;
+  --font-sans: "Inter", "Noto Sans Georgian", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Noto Serif Georgian", serif;
 
   --tracking-luxury: 0.22em;
 }

@@ -1,14 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { products } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
+import { useLanguage } from "@/components/LanguageProvider";
+import { translations } from "@/lib/translations";
+import { getProductsFn } from "@/lib/api/db.functions";
+
+type TranslationKey = keyof typeof translations.en;
 
 const valid = ["rings", "necklaces", "earrings", "bracelets"] as const;
 type Cat = (typeof valid)[number];
 
 export const Route = createFileRoute("/collections/$category")({
+  loader: async () => {
+    return { dbProducts: await getProductsFn() };
+  },
   head: ({ params }) => {
     const cat = params.category;
-    const title = cat.charAt(0).toUpperCase() + cat.slice(1);
+    const catKey = ("shop_cats_" + cat) as TranslationKey;
+    const title = translations.ka[catKey] || cat.charAt(0).toUpperCase() + cat.slice(1);
+    
     return {
       meta: [
         { title: `${title} — Alucha Studios` },
@@ -25,21 +34,26 @@ export const Route = createFileRoute("/collections/$category")({
 
 function Category() {
   const { category } = Route.useParams();
+  const { t } = useLanguage();
+  const { dbProducts } = Route.useLoaderData();
   const cat = category as Cat;
-  const title = cat.charAt(0).toUpperCase() + cat.slice(1);
+  
+  const catKey = ("shop_cats_" + cat) as TranslationKey;
+  const title = t(catKey);
+  
   const filtered = valid.includes(cat)
-    ? products.filter((p) => p.category.toLowerCase() === cat)
+    ? dbProducts.filter((p) => p.category.toLowerCase() === cat)
     : [];
-  // pad
-  const display = [...filtered, ...products, ...products].slice(0, 8);
+  
+  const display = filtered;
 
   return (
     <div className="pt-32 md:pt-40">
       <div className="container-luxury">
-        <p className="eyebrow">Collection</p>
+        <p className="eyebrow">{t("collection_title")}</p>
         <h1 className="mt-4 font-serif text-5xl md:text-7xl">{title}</h1>
         <p className="mt-6 max-w-xl text-muted-foreground leading-relaxed">
-          A curated edit of {cat} from the Alucha archive. Each piece hand-finished in our atelier.
+          {t("collection_desc", { category: title.toLowerCase() })}
         </p>
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-16 md:gap-x-8">
           {display.map((p, i) => (
@@ -48,7 +62,7 @@ function Category() {
         </div>
         <div className="mt-20 text-center">
           <Link to="/shop" className="link-underline text-sm tracking-[0.2em] uppercase">
-            Browse all collections →
+            {t("browse_all_collections")}
           </Link>
         </div>
       </div>

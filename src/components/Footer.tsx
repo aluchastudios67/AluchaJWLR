@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="border-t border-border bg-background mt-24">
       <div className="container-luxury py-20 grid grid-cols-2 md:grid-cols-5 gap-10">
@@ -9,41 +11,41 @@ export function Footer() {
             Alucha
           </Link>
           <p className="mt-5 text-sm text-muted-foreground max-w-xs leading-relaxed">
-            Modern heirlooms, made by hand in small numbers — for the stories worth keeping.
+            {t("footer_desc")}
           </p>
         </div>
         <FooterCol
-          title="Shop"
+          title={t("footer_shop")}
           links={[
-            ["Rings", "/collections/rings"],
-            ["Necklaces", "/collections/necklaces"],
-            ["Earrings", "/collections/earrings"],
-            ["Bracelets", "/collections/bracelets"],
+            [t("shop_cats_rings"), "/collections/rings"],
+            [t("shop_cats_necklaces"), "/collections/necklaces"],
+            [t("shop_cats_earrings"), "/collections/earrings"],
+            [t("shop_cats_bracelets"), "/collections/bracelets"],
           ]}
         />
         <FooterCol
-          title="House"
+          title={t("footer_house")}
           links={[
-            ["Our Story", "/story"],
-            ["Craftsmanship", "/craftsmanship"],
-            ["Journal", "/journal"],
-            ["Sustainability", "/sustainability"],
+            [t("nav_story"), "/story"],
+            [t("nav_craftsmanship"), "/craftsmanship"],
+            [t("nav_journal"), "/journal"],
+            [t("nav_sustainability"), "/sustainability"],
           ]}
         />
         <FooterCol
-          title="Care"
+          title={t("footer_care")}
           links={[
-            ["Contact", "/contact"],
-            ["Shipping", "/shipping"],
-            ["Returns", "/returns"],
-            ["Jewelry Care", "/care"],
+            [t("nav_contact"), "/contact"],
+            [t("nav_shipping"), "/shipping"],
+            [t("nav_returns"), "/returns"],
+            [t("nav_care"), "/care"],
           ]}
         />
       </div>
       <div className="border-t border-border">
         <div className="container-luxury py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground tracking-wider uppercase">
-          <span>© {new Date().getFullYear()} Alucha Studios</span>
-          <span>Crafted with intention · Paris · New York</span>
+          <span>{t("footer_copy", { year: String(new Date().getFullYear()) })}</span>
+          <span>{t("footer_crafted")}</span>
         </div>
       </div>
     </footer>

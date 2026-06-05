@@ -1,0 +1,701 @@
+{
+  "users": [
+    {
+      "id": "usr-admin",
+      "email": "admin@alucha.com",
+      "passwordHash": "YWRtaW4xMjM=",
+      "role": "admin",
+      "name": "Mariel Alucha",
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "usr-staff",
+      "email": "staff@alucha.com",
+      "passwordHash": "c3RhZmYxMjM=",
+      "role": "staff",
+      "name": "Levan Dolidze",
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "aurelia-signet",
+      "name": {
+        "ka": "აურელიას ბეჭედი-ბეჭდური",
+        "en": "Aurelia Signet Ring",
+        "ru": "Кольцо-печатка Aurelia"
+      },
+      "category": "Rings",
+      "price": 420,
+      "image": "/src/assets/product-1.jpg",
+      "material": {
+        "ka": "18-კარატიანი გადამუშავებული ოქრო ვერსალი",
+        "en": "18k recycled gold vermeil",
+        "ru": "18-каратное позолоченное переработанное серебро (вермей)"
+      },
+      "story": {
+        "ka": "რომაული ბეჭდებით შთაგონებული, აურელიას ბეჭედი ხელით სრულდება, რათა ატაროს ისტორია, რომელიც მხოლოდ მისმა მფლობელმა იცის.",
+        "en": "Inspired by Roman seals, the Aurelia signet is hand-finished to carry a story only its wearer knows.",
+        "ru": "Вдохновленное римскими печатями, кольцо Aurelia доработано вручную, чтобы нести историю, известную только его владельцу."
+      },
+      "status": "active",
+      "sku": "AL-AUR-RG-18K",
+      "tracksInventory": true,
+      "tags": [
+        "rings",
+        "featured",
+        "gold"
+      ],
+      "isFeatured": true,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "soleil-pendant",
+      "name": {
+        "ka": "სოლეილის ალმასის გულსაკიდი",
+        "en": "Soleil Diamond Pendant",
+        "ru": "Подвеска с бриллиантом Soleil"
+      },
+      "category": "Necklaces",
+      "price": 560,
+      "image": "/src/assets/product-2.jpg",
+      "material": {
+        "ka": "14-კარატიანი სუფთა ოქრო, კონფლიქტის გარეშე მოპოვებული ალმასი",
+        "en": "14k solid gold, conflict-free diamond",
+        "ru": "14-каратное цельное золото, бесконфликтный бриллиант"
+      },
+      "story": {
+        "ka": "ერთი მანათობელი წერტილი — გულთან ახლოს შესანახი მომენტებისთვის.",
+        "en": "A single luminous point — for the moments worth keeping close to the heart.",
+        "ru": "Единственная светящаяся точка — для моментов, которые стоит хранить у самого сердца."
+      },
+      "status": "active",
+      "sku": "AL-SOL-NC-14K",
+      "tracksInventory": true,
+      "tags": [
+        "necklaces",
+        "diamonds",
+        "gold"
+      ],
+      "isFeatured": true,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "lumen-hoops",
+      "name": {
+        "ka": "ლუმენის პატარა რგოლები",
+        "en": "Lumen Petite Hoops",
+        "ru": "Маленькие серьги-кольца Lumen"
+      },
+      "category": "Earrings",
+      "price": 285,
+      "image": "/src/assets/product-3.jpg",
+      "material": {
+        "ka": "18-კარატიანი გადამუშავებული ოქრო ვერსალი",
+        "en": "18k recycled gold vermeil",
+        "ru": "18-каратное позолоченное переработанное серебро (вермей)"
+      },
+      "story": {
+        "ka": "უმსუბუქო, გაპრიალებული, უსასრულოდ სატარებელი. რგოლი, დაყვანილი მის არსებით ფორმამდე.",
+        "en": "Weightless, polished, endlessly wearable. The hoop, refined to its essential gesture.",
+        "ru": "Невесомые, отполированные, бесконечно удобные. Серьги-кольца, доведенные до своей сути."
+      },
+      "status": "active",
+      "sku": "AL-LUM-ER-18K",
+      "tracksInventory": true,
+      "tags": [
+        "earrings",
+        "classics"
+      ],
+      "isFeatured": false,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "marée-bangle",
+      "name": {
+        "ka": "მარეს მარგალიტის სამაჯური",
+        "en": "Marée Pearl Bangle",
+        "ru": "Браслет с жемчугом Marée"
+      },
+      "category": "Bracelets",
+      "price": 340,
+      "image": "/src/assets/product-4.jpg",
+      "material": {
+        "ka": "14-კარატიანი ოქროთი დაფარული, მტკნარი წყლის მარგალიტი",
+        "en": "14k gold-filled, freshwater pearl",
+        "ru": "14-каратное напыление золота, пресноводный жемчуг"
+      },
+      "story": {
+        "ka": "ერთი მარგალიტი მიჰყვება ოქროს ნაზ ტალღას — მშვიდი, მანათობელი, მარადიული.",
+        "en": "A single pearl drifts along a fine gold tide — quiet, luminous, lasting.",
+        "ru": "Одинокая жемчужина дрейфует по тонкой золотой волне — тихая, светящаяся, стойкая."
+      },
+      "status": "active",
+      "sku": "AL-MAR-BR-PEARL",
+      "tracksInventory": true,
+      "tags": [
+        "bracelets",
+        "pearls"
+      ],
+      "isFeatured": true,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    }
+  ],
+  "variants": [
+    {
+      "id": "var-aurelia-signet-xs",
+      "productId": "aurelia-signet",
+      "name": "Size XS",
+      "price": 420,
+      "sku": "AL-AUR-RG-18K-XS",
+      "inventoryQuantity": 10,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-aurelia-signet-s",
+      "productId": "aurelia-signet",
+      "name": "Size S",
+      "price": 420,
+      "sku": "AL-AUR-RG-18K-S",
+      "inventoryQuantity": 15,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-aurelia-signet-m",
+      "productId": "aurelia-signet",
+      "name": "Size M",
+      "price": 420,
+      "sku": "AL-AUR-RG-18K-M",
+      "inventoryQuantity": 20,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-aurelia-signet-l",
+      "productId": "aurelia-signet",
+      "name": "Size L",
+      "price": 420,
+      "sku": "AL-AUR-RG-18K-L",
+      "inventoryQuantity": 25,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-soleil-pendant-xs",
+      "productId": "soleil-pendant",
+      "name": "Size XS",
+      "price": 560,
+      "sku": "AL-SOL-NC-14K-XS",
+      "inventoryQuantity": 10,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-soleil-pendant-s",
+      "productId": "soleil-pendant",
+      "name": "Size S",
+      "price": 560,
+      "sku": "AL-SOL-NC-14K-S",
+      "inventoryQuantity": 15,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-soleil-pendant-m",
+      "productId": "soleil-pendant",
+      "name": "Size M",
+      "price": 560,
+      "sku": "AL-SOL-NC-14K-M",
+      "inventoryQuantity": 20,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-soleil-pendant-l",
+      "productId": "soleil-pendant",
+      "name": "Size L",
+      "price": 560,
+      "sku": "AL-SOL-NC-14K-L",
+      "inventoryQuantity": 25,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-lumen-hoops-xs",
+      "productId": "lumen-hoops",
+      "name": "Size XS",
+      "price": 285,
+      "sku": "AL-LUM-ER-18K-XS",
+      "inventoryQuantity": 10,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-lumen-hoops-s",
+      "productId": "lumen-hoops",
+      "name": "Size S",
+      "price": 285,
+      "sku": "AL-LUM-ER-18K-S",
+      "inventoryQuantity": 15,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-lumen-hoops-m",
+      "productId": "lumen-hoops",
+      "name": "Size M",
+      "price": 285,
+      "sku": "AL-LUM-ER-18K-M",
+      "inventoryQuantity": 20,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-lumen-hoops-l",
+      "productId": "lumen-hoops",
+      "name": "Size L",
+      "price": 285,
+      "sku": "AL-LUM-ER-18K-L",
+      "inventoryQuantity": 25,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-marée-bangle-xs",
+      "productId": "marée-bangle",
+      "name": "Size XS",
+      "price": 340,
+      "sku": "AL-MAR-BR-PEARL-XS",
+      "inventoryQuantity": 10,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-marée-bangle-s",
+      "productId": "marée-bangle",
+      "name": "Size S",
+      "price": 340,
+      "sku": "AL-MAR-BR-PEARL-S",
+      "inventoryQuantity": 15,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-marée-bangle-m",
+      "productId": "marée-bangle",
+      "name": "Size M",
+      "price": 340,
+      "sku": "AL-MAR-BR-PEARL-M",
+      "inventoryQuantity": 20,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "var-marée-bangle-l",
+      "productId": "marée-bangle",
+      "name": "Size L",
+      "price": 340,
+      "sku": "AL-MAR-BR-PEARL-L",
+      "inventoryQuantity": 25,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    }
+  ],
+  "images": [
+    {
+      "id": "img-aurelia-signet-1",
+      "productId": "aurelia-signet",
+      "url": "/src/assets/product-1.jpg",
+      "altText": "Aurelia Signet Ring",
+      "sortOrder": 1,
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "img-soleil-pendant-1",
+      "productId": "soleil-pendant",
+      "url": "/src/assets/product-2.jpg",
+      "altText": "Soleil Diamond Pendant",
+      "sortOrder": 1,
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "img-lumen-hoops-1",
+      "productId": "lumen-hoops",
+      "url": "/src/assets/product-3.jpg",
+      "altText": "Lumen Petite Hoops",
+      "sortOrder": 1,
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "img-marée-bangle-1",
+      "productId": "marée-bangle",
+      "url": "/src/assets/product-4.jpg",
+      "altText": "Marée Pearl Bangle",
+      "sortOrder": 1,
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    }
+  ],
+  "collections": [
+    {
+      "id": "rings",
+      "name": {
+        "ka": "ბეჭდები",
+        "en": "Rings",
+        "ru": "Кольца"
+      },
+      "description": {
+        "ka": "რჩეული ბეჭდები ალუჩას არქივიდან. თითოეული ნამუშევარი ხელით არის დასრულებული ჩვენს ატელიეში.",
+        "en": "A curated edit of rings from the Alucha archive. Each piece hand-finished in our atelier.",
+        "ru": "Кураторская подборка колец из архива Алюша. Каждое изделие доработано вручную в нашем ателье."
+      },
+      "slug": "rings",
+      "isFeatured": true,
+      "productIds": [
+        "aurelia-signet"
+      ],
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "necklaces",
+      "name": {
+        "ka": "ყელსაბამები",
+        "en": "Necklaces",
+        "ru": "Ожерелья"
+      },
+      "description": {
+        "ka": "რჩეული ყელსაბამები ალუჩას არქივიდან. თითოეული ნამუშევარი ხელით არის დასრულებული ჩვენს ატელიეში.",
+        "en": "A curated edit of necklaces from the Alucha archive. Each piece hand-finished in our atelier.",
+        "ru": "Кураторская подборка ожерелий из архива Алюша. Каждое изделие доработано вручную в нашем ателье."
+      },
+      "slug": "necklaces",
+      "isFeatured": true,
+      "productIds": [
+        "soleil-pendant"
+      ],
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "earrings",
+      "name": {
+        "ka": "საყურეები",
+        "en": "Earrings",
+        "ru": "Серьги"
+      },
+      "description": {
+        "ka": "რჩეული საყურეები ალუჩას არქივიდან. თითოეული ნამუშევარი ხელით არის დასრულებული ჩვენს ატელიეში.",
+        "en": "A curated edit of earrings from the Alucha archive. Each piece hand-finished in our atelier.",
+        "ru": "Кураторская подборка серег из архива Алюша. Каждое изделие доработано вручную в нашем ателье."
+      },
+      "slug": "earrings",
+      "isFeatured": true,
+      "productIds": [
+        "lumen-hoops"
+      ],
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "bracelets",
+      "name": {
+        "ka": "სამაჯურები",
+        "en": "Bracelets",
+        "ru": "Браслеты"
+      },
+      "description": {
+        "ka": "რჩეული სამაჯურები ალუჩას არქივიდან. თითოეული ნამუშევარი ხელით არის დასრულებული ჩვენს ატელიეში.",
+        "en": "A curated edit of bracelets from the Alucha archive. Each piece hand-finished in our atelier.",
+        "ru": "Кураторская подборка браслетов из архива Алюша. Каждое изделие доработано вручную в нашем ателье."
+      },
+      "slug": "bracelets",
+      "isFeatured": true,
+      "productIds": [
+        "marée-bangle"
+      ],
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-1001",
+      "customerId": "cust-1",
+      "status": "delivered",
+      "paymentStatus": "paid",
+      "shippingAddress": {
+        "firstName": "Elena",
+        "lastName": "Rossi",
+        "company": "",
+        "address1": "Via Montenapoleone 8",
+        "city": "Milan",
+        "state": "MI",
+        "postalCode": "20121",
+        "country": "Italy",
+        "phone": "+39 333 1234567"
+      },
+      "billingAddress": {
+        "firstName": "Elena",
+        "lastName": "Rossi",
+        "company": "",
+        "address1": "Via Montenapoleone 8",
+        "city": "Milan",
+        "state": "MI",
+        "postalCode": "20121",
+        "country": "Italy",
+        "phone": "+39 333 1234567"
+      },
+      "shippingMethod": "Express International",
+      "trackingNumber": "DHL123456789",
+      "trackingUrl": "https://www.dhl.com/track",
+      "totalAmount": 420,
+      "taxAmount": 70,
+      "shippingAmount": 0,
+      "notes": "Please include gift wrapping.",
+      "createdAt": "2026-05-06T16:56:03.378Z",
+      "updatedAt": "2026-05-08T16:56:03.378Z",
+      "items": [
+        {
+          "id": "item-1",
+          "orderId": "ord-1001",
+          "productId": "aurelia-signet",
+          "variantId": "var-aurelia-signet-s",
+          "name": "Aurelia Signet Ring (Size S)",
+          "quantity": 1,
+          "price": 420
+        }
+      ]
+    },
+    {
+      "id": "ord-1002",
+      "customerId": "cust-2",
+      "status": "processing",
+      "paymentStatus": "paid",
+      "shippingAddress": {
+        "firstName": "Camille",
+        "lastName": "Dupont",
+        "company": "Atelier Dupont",
+        "address1": "42 Rue Saint-Honoré",
+        "city": "Paris",
+        "state": "IDF",
+        "postalCode": "75001",
+        "country": "France",
+        "phone": "+33 6 12345678"
+      },
+      "billingAddress": {
+        "firstName": "Camille",
+        "lastName": "Dupont",
+        "company": "Atelier Dupont",
+        "address1": "42 Rue Saint-Honoré",
+        "city": "Paris",
+        "state": "IDF",
+        "postalCode": "75001",
+        "country": "France",
+        "phone": "+33 6 12345678"
+      },
+      "shippingMethod": "Standard Atelier Courier",
+      "totalAmount": 1120,
+      "taxAmount": 186,
+      "shippingAmount": 0,
+      "notes": "Signature required on delivery.",
+      "createdAt": "2026-06-04T16:56:03.378Z",
+      "updatedAt": "2026-06-04T16:56:03.378Z",
+      "items": [
+        {
+          "id": "item-2",
+          "orderId": "ord-1002",
+          "productId": "soleil-pendant",
+          "variantId": "var-soleil-pendant-m",
+          "name": "Soleil Diamond Pendant (Size M)",
+          "quantity": 2,
+          "price": 560
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust-1",
+      "email": "elena@example.com",
+      "firstName": "Elena",
+      "lastName": "Rossi",
+      "phone": "+39 333 1234567",
+      "acceptsMarketing": true,
+      "lifetimeValue": 420,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "cust-2",
+      "email": "camille@example.com",
+      "firstName": "Camille",
+      "lastName": "Dupont",
+      "phone": "+33 6 12345678",
+      "acceptsMarketing": true,
+      "lifetimeValue": 1120,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "cust-3",
+      "email": "sofia@example.com",
+      "firstName": "Sofía",
+      "lastName": "Mendoza",
+      "phone": "+1 212 555 0199",
+      "acceptsMarketing": false,
+      "lifetimeValue": 0,
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    }
+  ],
+  "contentBlocks": [
+    {
+      "id": "home_hero",
+      "sectionKey": "home_hero",
+      "data": {
+        "eyebrow": {
+          "ka": "გაზაფხულის კოლექცია · 2026",
+          "en": "The Spring Edit · 2026",
+          "ru": "Весенняя коллекция · 2026"
+        },
+        "title_1": {
+          "ka": "სამკაული",
+          "en": "Jewelry",
+          "ru": "Украшения"
+        },
+        "title_2": {
+          "ka": "მნიშვნელობით.",
+          "en": "With Meaning.",
+          "ru": "со смыслом."
+        },
+        "description": {
+          "ka": "შექმნილია იმისთვის, რომ აღნიშნოს ისტორიები, მოგონებები და მომენტები, რომლებიც სამუდამოდ გრძელდება — ხელით, მცირე რაოდენობით, გადამუშავებული ოქროსგან.",
+          "en": "Crafted to celebrate stories, memories, and moments that last forever — by hand, in small numbers, from recycled gold.",
+          "ru": "Создано для того, чтобы праздновать истории, воспоминания и моменты, которые длятся вечно — вручную, небольшими тиражами, из переработанного золота."
+        }
+      },
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "marquee_notices",
+      "sectionKey": "marquee_notices",
+      "data": {
+        "items": [
+          {
+            "ka": "უფასო საერთაშორისო მიწოდება 250$-ზე მეტ შენაძენზე",
+            "en": "Complimentary worldwide shipping over $250",
+            "ru": "Бесплатная международная доставка от $250"
+          },
+          {
+            "ka": "ხელოსნობის უვადო გარანტია",
+            "en": "Lifetime craftsmanship guarantee",
+            "ru": "Пожизненная гарантия на работу"
+          },
+          {
+            "ka": "დამზადებულია მცირე პარტიებად",
+            "en": "Made in small batches",
+            "ru": "Сделано небольшими партиями"
+          },
+          {
+            "ka": "გადამუშავებული ოქრო · ეთიკურად მოპოვებული ქვები",
+            "en": "Recycled gold · ethically sourced stones",
+            "ru": "Переработанное золото · этичные камни"
+          }
+        ]
+      },
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": "post-1",
+      "title": {
+        "ka": "ოქრომჭედლობის ხელოვნება: ძველი და ახალი",
+        "en": "The Art of Goldsmithing: Old and New",
+        "ru": "Искусство ювелирного дела: старое и новое"
+      },
+      "slug": "art-of-goldsmithing",
+      "excerpt": {
+        "ka": "გაეცანით ჩვენი პარიზის ატელიეს საიდუმლოებებს და იმას, თუ როგორ ვაცოცხლებთ ძველ ტექნიკებს.",
+        "en": "Take a journey inside our Paris atelier and discover how we keep ancient lost-wax casting alive.",
+        "ru": "Загляните в нашу парижскую мастерскую и узнайте, как мы сохраняем старинные традиции литья."
+      },
+      "content": {
+        "en": "Goldsmithing is a dance between precision and emotion, a discipline that has connected human hands across millennia. At Alucha Studios, we view our workbench as a repository of this history. We practice lost-wax casting (cire perdue), an ancient method where a model is meticulously carved from wax, encased in a mold, and replaced by molten gold.\n\nThis slower cadence allows us to craft rings with a level of character that modern machinery simply cannot duplicate. Every file stroke, every polish leaves a microscopic signature, turning a piece of metal into a vessel of memory. The art of the goldsmith is not just to shape the gold, but to shape the quiet connection between the object and its keeper.",
+        "ka": "ოქრომჭედლობა არის ზუსტი გათვლებისა და ემოციების ჰარმონია, დისციპლინა, რომელიც ათასწლეულების მანძილზე აკავშირებს ადამიანის ხელებს. ალუჩა სტუდიოში ჩვენს სახელოსნოს ამ ისტორიის საცავად მივიჩნევთ. ჩვენ ვიყენებთ ცვილის დაკარგვის ტექნოლოგიას, უძველეს მეთოდს, სადაც მოდელი სათუთად იკვეთება ცვილისგან, თავსდება ყალიბში და შემდეგ იცვლება გამდნარი ოქროთი.\n\nეს ნელი ტემპი საშუალებას გვაძლევს შევქმნათ ბეჭდები ისეთი ხასიათით, რომლის გამეორებაც თანამედროვე დანადგარებს უბრალოდ არ შეუძლიათ. ხელოსნის ხელოვნება არა მხოლოდ ოქროს ფორმირებაა, არამედ იმ ფარული კავშირის შექმნაა, რომელიც სამკაულსა და მის მფლობელს შორის იბადება.",
+        "ru": "Ювелирное искусство — это танец между точностью и эмоцией, дисциплина, объединяющая человеческие руки на протяжении тысячелетий. В Alucha Studios мы рассматриваем наш верстак как хранилище этой истории. Мы практикуем литье по выплавляемым моделям — древний метод, при котором модель тщательно вырезается из воска, помещается в форму и заменяется расплавленным золотом.\n\nЭтот более медленный ритм позволяет нам создавать кольца с таким характером, который современные машины просто не могут воспроизвести. Искусство ювелира — это не просто придание формы золоту, это создание невидимой связи между объектом и его владельцем."
+      },
+      "coverImage": "/src/assets/craft.jpg",
+      "status": "published",
+      "authorId": "usr-admin",
+      "publishedAt": "2026-06-05T16:56:03.378Z",
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "post-2",
+      "title": {
+        "en": "The Poetry of Recycled Gold",
+        "ka": "გადამუშავებული ოქროს პოეზია",
+        "ru": "Поэзия переработанного золота"
+      },
+      "slug": "poetry-of-recycled-gold",
+      "excerpt": {
+        "en": "Why we choose to work exclusively with 18k recycled gold vermeil and traceable gemstones.",
+        "ka": "რატომ ვმუშაობთ მხოლოდ 18კ გადამუშავებულ ოქროსა და მიკვლევად ძვირფას ქვებზე.",
+        "ru": "Почему мы выбираем работу исключительно с 18-каратным переработанным золотом и отслеживаемыми камнями."
+      },
+      "content": {
+        "en": "To wear a piece of jewelry is to wear a fragment of the earth. We believe that fragment should not carry the burden of ecological destruction. This is why we choose to work exclusively with 18k recycled gold. Gold is a miraculous substance; it can be melted, refined, and recast indefinitely without losing its purity or strength.\n\nBy sourcing gold that is already in circulation, we bypass the heavy environmental footprint of mining. We treat our materials with a deep reverence, recognizing that the beauty of a modern heirloom should reside not just in its appearance, but in its history. From studio floor sweepings to antique coins, every grain of our gold is reborn as a clean canvas for your story.",
+        "ka": "სამკაულის ტარება ნიშნავს დედამიწის ფრაგმენტის ტარებას. ჩვენ გვჯერა, რომ ეს ფრაგმენტი არ უნდა ატარებდეს ეკოლოგიური განადგურების ტვირთს. სწორედ ამიტომ ვირჩევთ მუშაობას ექსკლუზიურად 18კ გადამუშავებულ ოქროზე. ოქრო საოცარი ნივთიერებაა; მისი დნობა, გაწმენდა და ხელახალი ფორმირება შესაძლებელია უსასრულოდ, სიძლიერისა და სისუფთავის დაკარგვის გარეშე.\n\nუკვე ბრუნვაში არსებული ოქროს გამოყენებით ჩვენ თავიდან ვიცილებთ მოპოვებით გამოწვეულ ეკოლოგიურ ზიანს. ჩვენს მასალებს დიდი პატივისცემით ვეპყრობით, რადგან თანამედროვე საგვარეულო ნივთის სილამაზე არა მხოლოდ მის იერში, არამედ მის წარმომავლობაში უნდა იყოს.",
+        "ru": "Носить украшение — значит носить фрагмент земли. Мы верим, что этот фрагмент не должен нести бремя экологического разрушения. Вот почему мы работаем исключительно с 18-каратным переработанным золотом. Золото — удивительное вещество; его можно плавить, очищать и отливать заново бесконечно без потери чистоты или прочности.\n\nИспользуя золото, которое уже находится в обращении, мы избегаем тяжелого экологического следа добычи. Мы относимся к нашим материалам с глубоким почтением, понимая, что красота современной реликвии должна заключаться не только в ее внешнем виде, но и в ее истории."
+      },
+      "coverImage": "/src/assets/story.jpg",
+      "status": "published",
+      "authorId": "usr-admin",
+      "publishedAt": "2026-05-31T16:56:03.378Z",
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    },
+    {
+      "id": "post-3",
+      "title": {
+        "en": "A Guide to Modern Heirloom Care",
+        "ka": "თანამედროვე საგვარეულო ნივთების მოვლის გზამკვლევი",
+        "ru": "Руководство по уходу за современными реликвиями"
+      },
+      "slug": "modern-heirloom-care",
+      "excerpt": {
+        "en": "Preserve the luster of your fine jewelry for generations with our conscious care notes.",
+        "ka": "შეინარჩუნეთ თქვენი სამკაულების ბზინვარება თაობებისთვის ჩვენი მოვლის რჩევებით.",
+        "ru": "Сохраните блеск ваших украшений на поколения вперед с нашими советами по осознанному уходу."
+      },
+      "content": {
+        "en": "Fine jewelry is resilient, yet it is also a quiet chronicle of your daily life. Over time, it gathers dust, natural oils from the skin, and elements from the atmosphere. To ensure your heirlooms carry their luster for generations, simple and conscious habits are key.\n\nAvoid wearing your jewelry during heavy exercise, swimming in chlorinated pools, or applying perfumes and lotions directly onto the pieces. Clean your gold and gemstones gently with warm, soapy water and a soft-bristled brush, then dry them with a soft lint-free cloth. When not worn, keep your pieces stored separately in their original soft pouches or a lined jewelry box to prevent scratching. Treat your jewelry with care, and it will remain a bright companion for a lifetime.",
+        "ka": "ძვირფასი სამკაულები გამძლეა, მაგრამ ისინი ასევე თქვენი ყოველდღიური ცხოვრების ჩუმ მემატიანეს წარმოადგენენ. დროთა განმავლობაში მათზე გროვდება მტვერი, კანის ბუნებრივი ცხიმები და ჰაერის ნაწილაკები. იმისათვის, რომ თქვენმა საგვარეულო ნივთებმა თაობები გაძლონ, რამდენიმე მარტივი ჩვევაა საჭირო.\n\nმოერიდეთ სამკაულების ტარებას ვარჯიშისას, ქლორირებულ აუზში ბანაობისას, ან პარფიუმერიის პირდაპირ შესხურებას. გაწმინდეთ თბილი საპნიანი წყლით და რბილი ჯაგრისით, შემდეგ კი გაამშრალეთ რბილი ტილოთი. როდესაც არ ატარებთ, შეინახეთ ცალკეულ რბილ პარკებში ნაკაწრების თავიდან ასაცილებლად.",
+        "ru": "Изысканные украшения долговечны, но они также являются тихой хроникой вашей повседневной жизни. Со временем на них скапливается пыль, кожные масла и атмосферные частицы. Чтобы ваши реликвии сохраняли свой блеск для будущих поколений, важны простые и осознанные привычки.\n\nИзбегайте ношения украшений во время тренировок, купания в хлорированном бассейне или нанесения духов непосредственно на изделия. Очищайте золото и камни теплой мыльной водой и мягкой щеткой, затем насухо протирайте мягкой тканью. Храните изделия отдельно в их оригинальных мешочках, чтобы предотвратить появление царапин."
+      },
+      "coverImage": "/src/assets/craft.jpg",
+      "status": "published",
+      "authorId": "usr-admin",
+      "publishedAt": "2026-05-24T16:56:03.378Z",
+      "createdAt": "2026-06-05T16:56:03.378Z",
+      "updatedAt": "2026-06-05T16:56:03.378Z"
+    }
+  ],
+  "subscribers": [],
+  "auditLogs": [
+    {
+      "id": "log-1",
+      "userId": "system",
+      "userName": "System Seeder",
+      "action": "INITIALIZE_DATABASE",
+      "entity": "Database",
+      "entityId": "all",
+      "details": "Database created and default store configuration seeded.",
+      "createdAt": "2026-06-05T16:56:03.378Z"
+    }
+  ]
+}

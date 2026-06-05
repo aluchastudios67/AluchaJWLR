@@ -1,20 +1,26 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, Search, ShoppingBag, Heart, X, Moon, Sun } from "lucide-react";
+import { Menu, Search, ShoppingBag, Heart, X, Moon, Sun, Globe } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
+import { useLanguage } from "./LanguageProvider";
+import { type translations } from "@/lib/translations";
+
+type TranslationKey = keyof typeof translations.en;
 
 const nav = [
-  { to: "/shop", label: "Shop" },
-  { to: "/collections", label: "Collections" },
-  { to: "/story", label: "Our Story" },
-  { to: "/craftsmanship", label: "Craftsmanship" },
-  { to: "/journal", label: "Journal" },
+  { to: "/shop", key: "nav_shop" as TranslationKey },
+  { to: "/collections", key: "nav_collections" as TranslationKey },
+  { to: "/story", key: "nav_story" as TranslationKey },
+  { to: "/craftsmanship", key: "nav_craftsmanship" as TranslationKey },
+  { to: "/journal", key: "nav_journal" as TranslationKey },
 ];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { theme, toggle } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
+  const [langOpen, setLangOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -41,7 +47,7 @@ export function Header() {
         <nav className="hidden md:flex gap-9 text-[12px] tracking-[0.18em] uppercase font-medium">
           {nav.slice(0, 3).map((n) => (
             <Link key={n.to} to={n.to} className="link-underline hover:text-gold transition-colors">
-              {n.label}
+              {t(n.key)}
             </Link>
           ))}
         </nav>
@@ -54,20 +60,63 @@ export function Header() {
           <nav className="hidden md:flex gap-9 text-[12px] tracking-[0.18em] uppercase font-medium mr-3">
             {nav.slice(3).map((n) => (
               <Link key={n.to} to={n.to} className="link-underline hover:text-gold transition-colors">
-                {n.label}
+                {t(n.key)}
               </Link>
             ))}
           </nav>
-          <button aria-label="Search" className="p-2 hover:text-gold transition-colors hidden md:block">
+          <button aria-label={t("search")} className="p-2 hover:text-gold transition-colors hidden md:block">
             <Search className="h-4 w-4" />
           </button>
-          <button aria-label="Toggle theme" onClick={toggle} className="p-2 hover:text-gold transition-colors">
+          
+          {/* Theme Toggle */}
+          <button aria-label={theme === "light" ? t("theme_dark") : t("theme_light")} onClick={toggle} className="p-2 hover:text-gold transition-colors">
             {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
           </button>
-          <Link to="/wishlist" aria-label="Wishlist" className="p-2 hover:text-gold transition-colors hidden md:block">
+
+          {/* Elegant Language Selector */}
+          <div className="relative">
+            <button 
+              onClick={() => setLangOpen(!langOpen)}
+              aria-label="Select language" 
+              className="p-2 text-[10px] md:text-xs tracking-wider md:tracking-widest uppercase hover:text-gold transition-colors flex items-center gap-1 cursor-pointer"
+            >
+              <Globe className="h-3.5 w-3.5" />
+              <span>{language === "ka" ? "ქარ" : language === "en" ? "EN" : "RU"}</span>
+            </button>
+            {langOpen && (
+              <>
+                <div 
+                  className="fixed inset-0 z-40 bg-transparent"
+                  onClick={() => setLangOpen(false)}
+                />
+                <div className="absolute right-0 top-full mt-1 bg-background border border-border shadow-lg py-1.5 min-w-[110px] z-50 rounded-sm">
+                  {[
+                    { code: "ka", label: "ქართული" },
+                    { code: "en", label: "English" },
+                    { code: "ru", label: "Русский" }
+                  ].map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setLanguage(lang.code as any);
+                        setLangOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 text-[11px] hover:bg-secondary/80 hover:text-gold transition-colors block cursor-pointer ${
+                        language === lang.code ? "text-gold font-medium" : "text-foreground/80"
+                      }`}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+
+          <Link to="/wishlist" aria-label={t("wishlist")} className="p-2 hover:text-gold transition-colors hidden md:block">
             <Heart className="h-4 w-4" />
           </Link>
-          <Link to="/cart" aria-label="Cart" className="p-2 hover:text-gold transition-colors relative">
+          <Link to="/cart" aria-label={t("cart")} className="p-2 hover:text-gold transition-colors relative">
             <ShoppingBag className="h-4 w-4" />
           </Link>
         </div>
@@ -93,9 +142,33 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="font-serif text-3xl"
             >
-              {n.label}
+              {t(n.key)}
             </Link>
           ))}
+          
+          {/* Mobile Language Switcher */}
+          <div className="border-t border-border mt-6 pt-6 flex gap-4">
+            {[
+              { code: "ka", label: "ქარ" },
+              { code: "en", label: "EN" },
+              { code: "ru", label: "RU" }
+            ].map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => {
+                  setLanguage(lang.code as any);
+                  setOpen(false);
+                }}
+                className={`px-3 py-1.5 border text-xs tracking-widest uppercase transition-colors ${
+                  language === lang.code 
+                    ? "border-gold text-gold font-medium" 
+                    : "border-border text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
         </nav>
       </div>
     </header>
